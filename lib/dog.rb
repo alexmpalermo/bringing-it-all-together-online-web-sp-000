@@ -73,11 +73,11 @@ end
 def self.find_or_create_by(name:, breed:)
     dog = DB[:conn].execute("SELECT * FROM dogs WHERE name = ? AND breed = ?", name, breed)
     if !dog.empty?
-      doggy = self.new_from_db(dog)
+      dog = self.new_from_db(dog)
     else
-      doggy = self.create(name: name, breed: breed)
+      dog = self.create(name: name, breed: breed)
     end
-    doggy
+    dog
   end 
   
   def update

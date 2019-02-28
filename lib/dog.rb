@@ -53,8 +53,8 @@ class Dog
   end
   
   def self.new_from_db(row)
-    hash[:name] = row[1]
-    hash[:breed] = row[2]
+    hash[:name] = "#{row[1]}"
+    hash[:breed] = "#{row[2]}"
     Dog.create(hash)
   end 
   

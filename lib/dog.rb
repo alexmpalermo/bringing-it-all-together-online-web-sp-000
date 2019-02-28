@@ -1,6 +1,5 @@
 class Dog 
-  attr_accessor :name, :breed 
-  attr_reader :id 
+  attr_accessor :name, :breed, :id 
   
   def initialize(id: nil, name:, breed:)
     @id = id
@@ -57,6 +56,7 @@ class Dog
   
   def self.new_from_db(row)
     hash = {}
+    hash[:id] = "#{row[0]}"
     hash[:name] = "#{row[1]}"
     hash[:breed] = "#{row[2]}"
     Dog.create(hash)
